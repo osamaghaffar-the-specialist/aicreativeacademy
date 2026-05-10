@@ -12,7 +12,23 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap"></noscript>
 
-<!-- FIX: Meta Pixel deferred -->
+<!-- GA4 — AI Creative Academy -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1YT1WQ7MVD"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-1YT1WQ7MVD');
+// Checkout page view track
+gtag('event', 'view_item', {
+  event_category: 'ecommerce',
+  event_label: 'checkout_page_view',
+  currency: 'PKR',
+  value: 3499
+});
+</script>
+
+<!-- Meta Pixel deferred -->
 <script>
 window.addEventListener('load', function() {
   !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
@@ -404,6 +420,38 @@ function switchTab(tab) {
     grid.appendChild(b);
   }
 })();
+
+// GA4 — WhatsApp button click (MAIN CONVERSION EVENT)
+document.querySelectorAll('.btn-wa, .sticky-wa-inner').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    // GA4
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'whatsapp_click', {
+        event_category: 'conversion',
+        event_label: 'checkout_whatsapp',
+        currency: 'PKR',
+        value: 3499
+      });
+    }
+    // Meta Pixel
+    if (typeof fbq !== 'undefined') {
+      fbq('track', 'Contact');
+      fbq('track', 'Lead');
+    }
+  });
+});
+
+// GA4 — Copy button clicks (bank details copy karna = high intent)
+document.querySelectorAll('.inline-copy').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'copy_payment_details', {
+        event_category: 'engagement',
+        event_label: btn.closest('.detail-row') ? 'payment_detail_copied' : 'unknown'
+      });
+    }
+  });
+});
 
 // Ripple
 document.querySelectorAll('.btn-wa, .sticky-wa-inner').forEach(function(btn) {
