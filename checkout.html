@@ -6,7 +6,6 @@
 <title>Enroll Now — AI Creative Academy</title>
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-<!-- FIX: Fonts non-blocking -->
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" media="print" onload="this.media='all'">
@@ -19,7 +18,7 @@ window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-1YT1WQ7MVD');
-// Checkout page view track
+// ✅ Checkout page view
 gtag('event', 'view_item', {
   event_category: 'ecommerce',
   event_label: 'checkout_page_view',
@@ -45,10 +44,7 @@ window.addEventListener('load', function() {
   --text:#e8eaf6;--muted:#8890b8;--white:#fff;
 }
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh;
-  /* FIX: padding-bottom for sticky WA button on mobile */
-  padding-bottom:80px;
-}
+body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh;padding-bottom:80px;}
 @media(min-width:841px){body{padding-bottom:0}}
 
 #prog{position:fixed;top:0;left:0;height:2px;width:0;z-index:9999;background:linear-gradient(90deg,#F97316,#8B5CF6,#4C8CE4);pointer-events:none}
@@ -151,16 +147,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;height:58px;display:flex;ali
 .step-d{font-size:10.5px;color:#8890b8;line-height:1.45}.step-d strong{color:#e8eaf6}
 .step-arr{text-align:center;font-size:11px;color:rgba(249,115,22,.3);line-height:1;margin:0}
 
-/* FIX: STICKY WA BUTTON — Shows on mobile always, desktop inline only */
 .btn-wa-wrap{margin-bottom:10px}
-
-/* Desktop: inline in card */
 .btn-wa{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:15px;border-radius:11px;background:linear-gradient(135deg,#25D366,#0e8c4a);color:#fff;font-weight:800;font-size:13px;font-family:'Inter',sans-serif;border:none;cursor:pointer;text-decoration:none;box-shadow:0 4px 22px rgba(37,211,102,.25);transition:transform .22s,box-shadow .22s;position:relative;overflow:hidden;letter-spacing:.2px}
 .btn-wa:hover{transform:translateY(-2px);box-shadow:0 7px 26px rgba(37,211,102,.4)}
 .btn-wa-dot{width:7px;height:7px;border-radius:50%;background:#fff;opacity:.7;animation:pulse 2s ease infinite}
 @keyframes pulse{0%,100%{opacity:.7;transform:scale(1)}50%{opacity:1;transform:scale(1.4)}}
 
-/* FIX: Sticky bottom bar — mobile only */
 .sticky-wa{display:none;position:fixed;bottom:0;left:0;right:0;z-index:999;padding:10px 16px;background:rgba(7,7,15,.95);backdrop-filter:blur(20px);border-top:1px solid rgba(37,211,102,.2)}
 .sticky-wa-inner{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;border-radius:10px;background:linear-gradient(135deg,#25D366,#0e8c4a);color:#fff;font-weight:800;font-size:14px;font-family:'Inter',sans-serif;text-decoration:none;box-shadow:0 4px 22px rgba(37,211,102,.3);letter-spacing:.2px}
 @media(max-width:840px){.sticky-wa{display:block}}
@@ -178,7 +170,6 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
 .f-links a{font-size:11px;color:#8890b8;text-decoration:none;font-weight:600;transition:color .2s}
 .f-links a:hover{color:var(--or)}
 
-/* RIPPLE */
 @keyframes rpl{to{transform:scale(4);opacity:0}}
 .rpl-el{position:absolute;border-radius:50%;background:rgba(255,255,255,.15);animation:rpl .55s linear forwards;pointer-events:none}
 
@@ -187,7 +178,6 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
   .layout{grid-template-columns:1fr;max-width:460px}
   .col-right{order:0}.col-left{order:1}
   .price-big{font-size:66px;letter-spacing:-4px}
-  /* FIX: Hide inline WA button on mobile — sticky bar handles it */
   .btn-wa-wrap{display:none}
 }
 @media(max-width:480px){
@@ -195,7 +185,6 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
   .page{padding:70px 14px 50px}
   .pay-card-body{padding:20px 16px 18px}
   .price-big{font-size:54px;letter-spacing:-3px}
-  /* FIX: Account number overflow fixed */
   .detail-val{font-size:11px;word-break:break-all}
   .detail-val.hi{font-size:18px}
 }
@@ -275,11 +264,16 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
             <div class="detail-box">
               <div class="detail-row">
                 <span class="detail-key">Number</span>
-                <span class="detail-val">03154294157 <button class="inline-copy" onclick="copyInline('03154294157',this)">Copy</button></span>
+                <span class="detail-val">03154294157
+                  <!-- ✅ data-field used for specific GA4 tracking -->
+                  <button class="inline-copy" data-field="JazzCash — Number" onclick="copyInline('03154294157',this)">Copy</button>
+                </span>
               </div>
               <div class="detail-row">
                 <span class="detail-key">Name</span>
-                <span class="detail-val">Usama Ghaffar <button class="inline-copy" onclick="copyInline('Usama Ghaffar',this)">Copy</button></span>
+                <span class="detail-val">Usama Ghaffar
+                  <button class="inline-copy" data-field="JazzCash — Name" onclick="copyInline('Usama Ghaffar',this)">Copy</button>
+                </span>
               </div>
               <div class="detail-row">
                 <span class="detail-key">Amount</span>
@@ -314,11 +308,15 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
               </div>
               <div class="detail-row">
                 <span class="detail-key">Title</span>
-                <span class="detail-val">Usama Ghaffar <button class="inline-copy" onclick="copyInline('Usama Ghaffar',this)">Copy</button></span>
+                <span class="detail-val">Usama Ghaffar
+                  <button class="inline-copy" data-field="Bank Transfer — Name" onclick="copyInline('Usama Ghaffar',this)">Copy</button>
+                </span>
               </div>
               <div class="detail-row">
                 <span class="detail-key">Account</span>
-                <span class="detail-val">02150104008928 <button class="inline-copy" onclick="copyInline('02150104008928',this)">Copy</button></span>
+                <span class="detail-val">02150104008928
+                  <button class="inline-copy" data-field="Bank Transfer — Account Number" onclick="copyInline('02150104008928',this)">Copy</button>
+                </span>
               </div>
               <div class="detail-row">
                 <span class="detail-key">Amount</span>
@@ -344,7 +342,7 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
             </div>
           </div>
 
-          <!-- FIX: Desktop WA button (hidden on mobile — sticky bar handles it) -->
+          <!-- Desktop WA button -->
           <div class="btn-wa-wrap">
             <a href="https://wa.me/923350773546?text=Hi!%20I%20have%20sent%20Rs.%203%2C499%20for%20AI%20Creative%20Academy.%20Sending%20my%20payment%20screenshot%20now.%20Please%20send%20me%20access." class="btn-wa" target="_blank" rel="noopener">
               <div class="btn-wa-dot"></div>
@@ -360,7 +358,7 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
   </div>
 </div>
 
-<!-- FIX: STICKY WHATSAPP BUTTON — Mobile Only — Always Visible -->
+<!-- Sticky WhatsApp — Mobile Only -->
 <div class="sticky-wa">
   <a href="https://wa.me/923350773546?text=Hi!%20I%20have%20sent%20Rs.%203%2C499%20for%20AI%20Creative%20Academy.%20Sending%20my%20payment%20screenshot%20now.%20Please%20send%20me%20access." class="sticky-wa-inner" target="_blank" rel="noopener">
     <div class="btn-wa-dot"></div>
@@ -382,17 +380,38 @@ footer{position:relative;z-index:1;background:var(--bg2);border-top:1px solid va
 <script>
 'use strict';
 
+// ✅ Copy function — GA4 event with EXACT field name
 function copyInline(text, btn) {
+  var fieldName = btn.getAttribute('data-field') || 'unknown';
   var orig = btn.innerHTML;
   var done = function() {
     btn.innerHTML = '✓ Copied';
     btn.classList.add('copied');
     setTimeout(function() { btn.innerHTML = orig; btn.classList.remove('copied'); }, 2000);
   };
-  if (navigator.clipboard) { navigator.clipboard.writeText(text).then(done).catch(function(){}); }
-  else { var ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); done(); }
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(done).catch(function(){});
+  } else {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    done();
+  }
+  // ✅ GA4: Exact field tracking — JazzCash/Bank + Number/Name/Account
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'copy_payment_details', {
+      event_category: 'high_intent',
+      event_label: fieldName,
+      currency: 'PKR',
+      value: 3499
+    });
+  }
 }
 
+// ✅ Tab switch — track which payment method user viewed
 function switchTab(tab) {
   ['jazz','bank'].forEach(function(t) {
     var b = document.getElementById('tab-' + t);
@@ -400,6 +419,13 @@ function switchTab(tab) {
     if (b) b.classList.toggle('active', t === tab);
     if (p) { p.classList.toggle('active', t === tab); p.style.display = t === tab ? 'block' : 'none'; }
   });
+  // ✅ GA4: Payment method tab switch
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'payment_tab_switch', {
+      event_category: 'engagement',
+      event_label: tab === 'jazz' ? 'JazzCash' : 'Bank Transfer'
+    });
+  }
 }
 
 // Bubble grid
@@ -421,14 +447,15 @@ function switchTab(tab) {
   }
 })();
 
-// GA4 — WhatsApp button click (MAIN CONVERSION EVENT)
+// ✅ GA4 + Meta Pixel — WhatsApp button click (MAIN CONVERSION)
 document.querySelectorAll('.btn-wa, .sticky-wa-inner').forEach(function(btn) {
   btn.addEventListener('click', function() {
+    var isMobile = btn.classList.contains('sticky-wa-inner');
     // GA4
     if (typeof gtag !== 'undefined') {
       gtag('event', 'whatsapp_click', {
         event_category: 'conversion',
-        event_label: 'checkout_whatsapp',
+        event_label: isMobile ? 'checkout_whatsapp_mobile_sticky' : 'checkout_whatsapp_desktop',
         currency: 'PKR',
         value: 3499
       });
@@ -438,32 +465,15 @@ document.querySelectorAll('.btn-wa, .sticky-wa-inner').forEach(function(btn) {
       fbq('track', 'Contact');
       fbq('track', 'Lead');
     }
-  });
-});
-
-// GA4 — Copy button clicks (bank details copy karna = high intent)
-document.querySelectorAll('.inline-copy').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    if (typeof gtag !== 'undefined') {
-      gtag('event', 'copy_payment_details', {
-        event_category: 'engagement',
-        event_label: btn.closest('.detail-row') ? 'payment_detail_copied' : 'unknown'
-      });
-    }
-  });
-});
-
-// Ripple
-document.querySelectorAll('.btn-wa, .sticky-wa-inner').forEach(function(btn) {
-  btn.addEventListener('click', function(e) {
+    // Ripple effect
     var r = this.getBoundingClientRect();
     var size = Math.max(r.width, r.height);
     var el = document.createElement('span');
     el.className = 'rpl-el';
     el.style.width = size + 'px';
     el.style.height = size + 'px';
-    el.style.left = (e.clientX - r.left - size/2) + 'px';
-    el.style.top = (e.clientY - r.top - size/2) + 'px';
+    el.style.left = (event.clientX - r.left - size/2) + 'px';
+    el.style.top = (event.clientY - r.top - size/2) + 'px';
     this.appendChild(el);
     setTimeout(function() { el.remove(); }, 600);
   });
