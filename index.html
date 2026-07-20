@@ -31,7 +31,7 @@ gtag('config','G-1YT1WQ7MVD');
 <script>
 window.addEventListener('load',function(){
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','1017767193907744');fbq('track','PageView');fbq('track','ViewContent');
+fbq('init','2014485366610788');fbq('track','PageView');fbq('track','ViewContent');
 });
 </script>
 
@@ -784,7 +784,10 @@ function trackEnroll(label) {
   if (typeof gtag !== 'undefined') {
     gtag('event', 'begin_checkout', {event_category:'conversion', event_label: label, currency:'PKR', value:3499});
   }
-  if (typeof fbq !== 'undefined') { fbq('track', 'InitiateCheckout'); }
+  if (typeof fbq !== 'undefined') {
+    fbq('track', 'AddToCart', {value: 3499, currency: 'PKR', content_name: 'AI Creative Academy Course'});
+    fbq('track', 'InitiateCheckout', {value: 3499, currency: 'PKR'});
+  }
 }
 
 // VSL load
